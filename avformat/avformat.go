@@ -20,7 +20,7 @@ package avformat
 import "C"
 import (
 	"unsafe"
-	"github.com/giorgisio/goav/avutil"
+	"goav/avutil"
 )
 
 type (

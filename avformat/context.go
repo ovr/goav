@@ -7,8 +7,8 @@ package avformat
 //#include <libavformat/avformat.h>
 import "C"
 import (
-	"github.com/giorgisio/goav/avcodec"
-	"github.com/giorgisio/goav/avutil"
+	"goav/avcodec"
+	"goav/avutil"
 	"unsafe"
 )
 
