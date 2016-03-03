@@ -4,6 +4,7 @@
 package avcodec
 
 //#cgo pkg-config: libavcodec
+//#cgo CFLAGS: -Wno-deprecated-declarations
 //#include <libavcodec/avcodec.h>
 import "C"
 import (

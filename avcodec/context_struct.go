@@ -5,6 +5,7 @@ package avcodec
 
 import (
 	"goav/avutil"
+	"github.com/labstack/gommon/log"
 )
 
 func (ctxt *CodecContext) ActiveThreadType() int {
@@ -177,6 +178,10 @@ func (ctxt *CodecContext) HeaderBits() int {
 
 func (ctxt *CodecContext) Height() int {
 	return int(ctxt.height)
+}
+
+func (ctxt *CodecContext) CodecHeight() int {
+	return int(ctxt.coded_height)
 }
 
 func (ctxt *CodecContext) ICount() int {
@@ -483,6 +488,10 @@ func (ctxt *CodecContext) Width() int {
 	return int(ctxt.width)
 }
 
+func (ctxt *CodecContext) CodecWidth() int {
+	return int(ctxt.coded_width)
+}
+
 func (ctxt *CodecContext) WorkaroundBugs() int {
 	return int(ctxt.workaround_bugs)
 }
@@ -500,6 +509,7 @@ func (ctxt *CodecContext) CodecDescriptor() *Descriptor {
 }
 
 func (ctxt *CodecContext) CodecId() CodecId {
+	log.Print(ctxt.codec_id)
 	return (CodecId)(ctxt.codec_id)
 }
 

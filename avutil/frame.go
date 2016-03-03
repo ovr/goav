@@ -41,7 +41,7 @@ func AvFrameAlloc() *Frame {
 
 //Free the frame and any dynamically allocated objects in it, e.g.
 func AvFrameFree(f *Frame) {
-	C.av_frame_free((**C.struct_AVFrame)(unsafe.Pointer(f)))
+	C.av_frame_free((**C.struct_AVFrame)(unsafe.Pointer(&f)))
 }
 
 //Allocate new buffer(s) for audio or video data.
@@ -102,8 +102,8 @@ func AvFrameGetSideData(f *Frame, t AvFrameSideDataType) *AvFrameSideData {
 func Data(f *Frame) *uint8 {
 	return (*uint8)(unsafe.Pointer((*C.uint8_t)(unsafe.Pointer(&f.data))))
 }
-func Linesize(f *Frame) int {
-	return int(*(*C.int)(unsafe.Pointer(&f.linesize)))
+func Linesize(f *Frame) *int {
+	return ((*int)(unsafe.Pointer(&f.linesize)))
 }
 
 // //static int get_video_buffer (Frame *frame, int align)

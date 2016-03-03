@@ -72,11 +72,6 @@ func AvfilterLinkGetChannels(l *Link) int {
 	return int(C.avfilter_link_get_channels((*C.struct_AVFilterLink)(l)))
 }
 
-//Set the closed field of a link.
-func AvfilterLinkSetClosed(l *Link, c int) {
-	C.avfilter_link_set_closed((*C.struct_AVFilterLink)(l), C.int(c))
-}
-
 //Negotiate the media format, dimensions, etc of all inputs to a filter.
 func AvfilterConfigLinks(f *Context) int {
 	return int(C.avfilter_config_links((*C.struct_AVFilterContext)(f)))
